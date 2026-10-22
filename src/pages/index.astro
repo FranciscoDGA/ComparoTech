@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
 import AdSlot from '../components/AdSlot.astro';
-import { CATEGORIES } from '../config';
+import { CATEGORIES, categoryName, categoryHex } from '../config';
 
 const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -11,44 +11,189 @@ const posts = (await getCollection('posts')).sort(
 
 const featured = posts.find((post) => post.data.featured) ?? posts[0];
 const latest = posts.filter((post) => post.id !== featured?.id).slice(0, 6);
+
+const featuredWords = (featured?.body ?? '').split(/\s+/).filter(Boolean).length;
+const featuredReading = Math.max(1, Math.round(featuredWords / 200));
+const featuredDate = featured?.data.pubDate.toLocaleDateString('pt-BR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
 ---
 
 <Base>
   <section class="hero">
-    <div class="container">
-      <h1>Escolha a ferramenta certa sem perder horas pesquisando</h1>
-      <p>
-        Comparativos de VPN, hospedagem, apps e produtividade — com tabela
-        lado a lado, prós, contras e um veredito direto ao ponto.
-      </p>
-      <ul class="category-pills">
-        {
-          Object.entries(CATEGORIES).map(([slug, cat]) => (
-            <li>
-              <a href={`/categorias/${slug}`}>{cat.name}</a>
-            </li>
-          ))
-        }
-      </ul>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Atualizado em outubro de 2026</p>
+        <h1>Escolha a ferramenta certa <em>sem perder horas</em> pesquisando</h1>
+        <p class="hero-sub">
+          Comparativos de VPN, hospedagem, apps e produtividade — tabela lado a
+          lado, prós, contras e um veredito direto ao ponto.
+        </p>
+        <ul class="category-pills">
+          {
+            Object.entries(CATEGORIES).map(([slug, cat]) => (
+              <li>
+                <a href={`/categorias/${slug}`} style={`--cat: ${cat.hex}`}>
+                  <span class="dot" />
+                  {cat.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="hero-mock" aria-hidden="true">
+        <div class="mock-row win">
+          <div>
+            <div class="mock-name">Opção A</div>
+            <div class="mock-meta">Melhor equilíbrio geral</div>
+          </div>
+          <span class="mock-score">9.2</span>
+          <div class="mock-bar"><i style="width: 92%"></i></div>
+        </div>
+        <div class="mock-row">
+          <div>
+            <div class="mock-name">Opção B</div>
+            <div class="mock-meta">Melhor preço</div>
+          </div>
+          <span class="mock-score">8.4</span>
+          <div class="mock-bar"><i style="width: 84%"></i></div>
+        </div>
+        <div class="mock-row">
+          <div>
+            <div class="mock-name">Opção C</div>
+            <div class="mock-meta">Mais fácil de usar</div>
+          </div>
+          <span class="mock-score">8.1</span>
+          <div class="mock-bar"><i style="width: 81%"></i></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Destaque</h2>
-      <div class="post-grid" style="grid-template-columns: 1fr;">
-        {featured && <PostCard post={featured} />}
+  {
+    featured && (
+      <section class="section" style="padding-bottom: 28px;">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Destaque da semana</h2>
+              <p class="section-sub">O comparativo mais completo do momento</p>
+            </div>
+          </div>
+
+          <a
+            class="featured-card"
+            href={`/posts/${featured.id}/`}
+            style={`--cat: ${categoryHex(featured.data.category)}`}
+          >
+            <div class="featured-body">
+              <span class="featured-chip">{categoryName(featured.data.category)}</span>
+              <h2>{featured.data.title}</h2>
+              <p>{featured.data.description}</p>
+              <div class="featured-meta">
+                <span>{featuredDate}</span>
+                <span>·</span>
+                <span>{featuredReading} min de leitura</span>
+              </div>
+              <span class="featured-cta">
+                Ler comparativo
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 12h14m-6-6 6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="featured-visual" aria-hidden="true">
+              <div class="featured-visual-inner">
+                <div class="fv-row best">
+                  <span>1º lugar</span>
+                  <span class="fv-tag">MELHOR</span>
+                </div>
+                <div class="fv-row">
+                  <span>2º lugar</span>
+                  <span class="fv-tag">PREÇO</span>
+                </div>
+                <div class="fv-row">
+                  <span>3º lugar</span>
+                  <span class="fv-tag">FÁCIL</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">01</div>
+        <div>
+          <h3>Critérios fixos</h3>
+          <p>Mesmos critérios em todas as opções: preço, uso real, recursos e suporte.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">02</div>
+        <div>
+          <h3>Veredito sem enrolação</h3>
+          <p>Cada artigo termina com "quem deve comprar o quê" — em uma frase.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">03</div>
+        <div>
+          <h3>Transparência comercial</h3>
+          <p>Links de afiliados e anúncios são sinalizados. Comissão não muda nota.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <AdSlot slot="home-topo" minHeight={90} />
 
-  <section class="section" style="padding-top: 0;">
+  <section class="section">
     <div class="container">
-      <h2 class="section-title">Últimos artigos</h2>
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Últimos artigos</h2>
+          <p class="section-sub">Novos comparativos e guias publicados recentemente</p>
+        </div>
+      </div>
       <div class="post-grid">
         {latest.map((post) => <PostCard post={post} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 8px;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Explore por categoria</h2>
+          <p class="section-sub">Escolha um tema e veja todos os comparativos</p>
+        </div>
+      </div>
+      <div class="cat-tiles">
+        {
+          Object.entries(CATEGORIES).map(([slug, cat]) => (
+            <a href={`/categorias/${slug}`} class="cat-tile" style={`--cat: ${cat.hex}`}>
+              <div class="tile-icon">{cat.name.charAt(0)}</div>
+              <h3>{cat.name}</h3>
+              <p>{cat.description}</p>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>

@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { categoryName } from '../config';
+import { categoryName, categoryHex } from '../config';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -14,12 +14,20 @@ const dateFormatted = pubDate.toLocaleDateString('pt-BR', {
   month: 'short',
   year: 'numeric',
 });
+
+const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(words / 200));
 ---
 
-<a class="post-card" href={`/posts/${post.id}/`}>
+<a
+  class="post-card"
+  href={`/posts/${post.id}/`}
+  style={`--cat: ${categoryHex(category)}`}
+>
   <div class="card-meta">
     <span class="card-category">{categoryName(category)}</span>
     <time datetime={pubDate.toISOString()}>{dateFormatted}</time>
+    <span>· {readingTime} min de leitura</span>
   </div>
   <h2>{title}</h2>
   <p>{description}</p>

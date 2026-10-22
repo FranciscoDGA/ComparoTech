@@ -9,22 +9,33 @@ export const SITE = {
   founded: 2026,
 } as const;
 
-export const CATEGORIES: Record<string, { name: string; description: string }> = {
+export interface CategoryInfo {
+  name: string;
+  description: string;
+  hex: string;
+}
+
+export const CATEGORIES: Record<string, CategoryInfo> = {
   'vpn-e-seguranca': {
     name: 'VPN e Segurança',
     description: 'VPNs, antivírus e ferramentas para proteger sua navegação e dados.',
+    hex: '#059669',
   },
   hospedagem: {
     name: 'Hospedagem',
-    description: 'Hospedagem de sites, domínios, e-mail profissional e ferramentas para quem site no ar.',
+    description:
+      'Hospedagem de sites, domínios, e-mail profissional e ferramentas para manter seu site no ar.',
+    hex: '#d97706',
   },
   produtividade: {
     name: 'Produtividade',
     description: 'Apps e sistemas para organizar tarefas, projetos e rotina de trabalho.',
+    hex: '#7c3aed',
   },
   'apps-gratuitos': {
     name: 'Apps Gratuitos',
     description: 'Melhores apps gratuitos para celular e computador, testados e comparados.',
+    hex: '#e11d48',
   },
 };
 
@@ -34,4 +45,8 @@ export function categoryName(slug: string): string {
 
 export function categoryDescription(slug: string): string {
   return CATEGORIES[slug]?.description ?? '';
+}
+
+export function categoryHex(slug: string): string {
+  return CATEGORIES[slug]?.hex ?? '#2563eb';
 }
