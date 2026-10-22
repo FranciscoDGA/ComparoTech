@@ -12,6 +12,16 @@ Editar vídeo no celular deixou de ser "amador" há tempo: dá para fazer cortes
 
 Testamos os critérios que realmente importam para o usuário comum: **marca d'água, qualidade de exportação, facilidade, recursos essenciais (legendas, cortes, áudio) e assédio a anúncios**. Abaixo, os 7 melhores apps gratuitos de edição de vídeo para celular em 2026.
 
+<div class="cta-inline">
+  <span class="pick-label">Pressa? Comece por aqui</span>
+  <h3>CapCut no celular · iMovie no iPhone</h3>
+  <p>Os dois gratuitos, sem marca d'água na exportação padrão — instale e edite hoje.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://www.capcut.com" target="_blank" rel="noopener">Ver CapCut</a>
+    <a class="btn btn-ghost" href="https://apps.apple.com/br/app/imovie/id361285480" target="_blank" rel="noopener">Ver iMovie</a>
+  </div>
+</div>
+
 ## Tabela comparativa rápida
 
 | App | Plataforma | Marca d'água no grátis | Exportação grátis | Melhor para |
@@ -207,3 +217,13 @@ Se você tem iPhone ou iPad, o iMovie já está lá: gratuito, sem marca d'água
 ---
 
 **Resumo em uma frase:** instale o **CapCut**; se quiser mais controle gratuito, o **VN**; se tiver iPhone e quiser o mínimo de apps, use o **iMovie** que já está no seu aparelho.
+
+<div class="cta-inline">
+  <span class="pick-label">Baixar agora</span>
+  <h3>Comece pelo CapCut — é gratuito e sem marca d'água</h3>
+  <p>Disponível para Android e iPhone.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://www.capcut.com" target="_blank" rel="noopener">Baixar CapCut</a>
+    <a class="btn btn-ghost" href="https://play.google.com/store/search?q=vn%20video%20editor&c=apps" target="_blank" rel="noopener">Procurar VN no Play Store</a>
+  </div>
+</div>

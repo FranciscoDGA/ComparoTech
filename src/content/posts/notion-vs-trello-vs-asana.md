@@ -12,6 +12,17 @@ Notion, Trello e Asana dominam as listas de "melhor app de produtividade" — ma
 
 Neste comparativo, explicamos **o que cada uma faz de melhor**, os limites do plano gratuito e **qual escolher para o seu caso específico** (estudo, trabalho solo, equipe, life wiki).
 
+<div class="cta-inline">
+  <span class="pick-label">Pressa? Depende do seu caso</span>
+  <h3>Notion para você · Trello para o kanban · Asana para o time</h3>
+  <p>As três têm plano gratuito — comece por ele e só pague se faltar recurso.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://www.notion.so" target="_blank" rel="sponsored noopener">Testar Notion</a>
+    <a class="btn btn-ghost" href="https://trello.com" target="_blank" rel="sponsored noopener">Testar Trello</a>
+    <a class="btn btn-ghost" href="https://asana.com" target="_blank" rel="sponsored noopener">Testar Asana</a>
+  </div>
+</div>
+
 ## Tabela comparativa rápida
 
 | Critério | **Notion** | **Trello** | **Asana** |
@@ -161,3 +172,13 @@ Ferramenta errada no contexto errado é a maior causa de "abandono de app de pro
 ---
 
 **Resumo em uma frase:** **Notion** para construir seu sistema de conhecimento, **Trello** para kanban descomplicado, **Asana** quando existe time e prazo real em jogo.
+
+<div class="cta-inline">
+  <span class="pick-label">Comece grátis</span>
+  <h3>Teste as três hoje — sem cartão de crédito</h3>
+  <p>Monte a mesma lista em cada uma e fique com a que fluiu melhor para você.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://www.notion.so" target="_blank" rel="sponsored noopener">Criar conta no Notion</a>
+    <a class="btn btn-ghost" href="https://trello.com" target="_blank" rel="sponsored noopener">Criar quadro no Trello</a>
+  </div>
+</div>

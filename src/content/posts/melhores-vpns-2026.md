@@ -15,6 +15,16 @@ Neste guia, comparamos **7 VPNs** relevantes para o usuário brasileiro, com tab
 
 > **Nota de transparência:** este artigo pode conter links de afiliados. Se você comprar por eles, o ComparoTech recebe comissão — sem custo extra para você. A ordem e as notas **não** são influenciadas por comissão.
 
+<div class="cta-inline">
+  <span class="pick-label">Sem tempo? Escolha direto</span>
+  <h3>NordVPN para o melhor geral · Surfshark para o menor preço</h3>
+  <p>As duas têm garantia de reembolso — dá para testar sem risco.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://nordvpn.com" target="_blank" rel="sponsored noopener">Ver NordVPN</a>
+    <a class="btn btn-ghost" href="https://surfshark.com" target="_blank" rel="sponsored noopener">Ver Surfshark</a>
+  </div>
+</div>
+
 ## Tabela comparativa rápida (2026)
 
 | VPN | Melhor para | Servidores no Brasil | Dispositivos simultâneos | A partir de* |
@@ -207,5 +217,15 @@ PrivadoVPN é a aposta do **orçamento apertado**: preço baixo, 10 aparelhos si
 ---
 
 **Resumo em uma frase:** se você não quer pensar muito, compre a **NordVPN**; se quer o melhor preço com aparelhos ilimitados, compre a **Surfshark**; se privacidade é prioridade, **ProtonVPN**.
+
+<div class="cta-inline">
+  <span class="pick-label">Próximo passo</span>
+  <h3>Escolha a sua e teste com garantia de reembolso</h3>
+  <p>Confira o preço promocional atual no site oficial antes de assinar.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://nordvpn.com" target="_blank" rel="sponsored noopener">Ver oferta NordVPN</a>
+    <a class="btn btn-ghost" href="https://surfshark.com" target="_blank" rel="sponsored noopener">Ver oferta Surfshark</a>
+  </div>
+</div>
 
 Confira sempre os preços promocionais no site oficial antes de assinar — os valores desta tabela mudam com frequência.

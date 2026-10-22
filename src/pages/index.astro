@@ -43,6 +43,11 @@ const featuredDate = featured?.data.pubDate.toLocaleDateString('pt-BR', {
             ))
           }
         </ul>
+        <div class="stats-strip">
+          <span class="stat-chip"><strong>{posts.length}</strong> comparativos</span>
+          <span class="stat-chip"><strong>{Object.keys(CATEGORIES).length}</strong> categorias</span>
+          <span class="stat-chip"><strong>5</strong> critérios fixos por artigo</span>
+        </div>
       </div>
 
       <div class="hero-mock" aria-hidden="true">
@@ -70,6 +75,46 @@ const featuredDate = featured?.data.pubDate.toLocaleDateString('pt-BR', {
           <span class="mock-score">8.1</span>
           <div class="mock-bar"><i style="width: 81%"></i></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-picks">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Nossas escolhas rápidas</h2>
+          <p class="section-sub">Sem tempo? Estas são as recomendações de quem já comparou tudo</p>
+        </div>
+      </div>
+      <div class="quick-grid">
+        <a class="quick-card" href="/posts/melhores-vpns-2026/" style="--cat: #059669">
+          <span class="quick-badge">Melhor VPN geral</span>
+          <h3>NordVPN</h3>
+          <p>
+            Equilíbrio raro entre velocidade, servidores no Brasil e recursos de
+            segurança. A escolha segura para 90% das pessoas.
+          </p>
+          <span class="btn btn-sm">Ver por que é a nº 1 →</span>
+        </a>
+        <a class="quick-card" href="/posts/melhores-vpns-2026/" style="--cat: #2563eb">
+          <span class="quick-badge">Melhor preço</span>
+          <h3>Surfshark</h3>
+          <p>
+            A partir do menor valor da lista e com aparelhos ilimitados — ideal
+            para famílias e para quem testa muito app.
+          </p>
+          <span class="btn btn-sm">Ver comparativo →</span>
+        </a>
+        <a class="quick-card" href="/posts/hostinger-vs-bluehost/" style="--cat: #d97706">
+          <span class="quick-badge">Melhor hospedagem</span>
+          <h3>Hostinger</h3>
+          <p>
+            Preço de entrada mais baixo, painel simples e WordPress em 1 clique.
+            A escolha para o primeiro site.
+          </p>
+          <span class="btn btn-sm">Ver Hostinger vs Bluehost →</span>
+        </a>
       </div>
     </div>
   </section>

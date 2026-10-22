@@ -1,0 +1,30 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  variant?: 'rail' | 'mobile';
+}
+
+const { headings, variant = 'rail' } = Astro.props;
+const items = headings.filter((h) => h.depth === 2).slice(0, 12);
+---
+
+{
+  items.length > 0 && (
+    <nav class={`toc toc-${variant}`} aria-label="Sumário do artigo">
+      <h3>Neste artigo</h3>
+      <ol>
+        {items.map((h) => (
+          <li>
+            <a href={`#${h.slug}`}>{h.text}</a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}

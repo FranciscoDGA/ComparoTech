@@ -3,6 +3,9 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import PostCard from '../../components/PostCard.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import ShareRow from '../../components/ShareRow.astro';
+import NewsletterCta from '../../components/NewsletterCta.astro';
 import { SITE, categoryName, categoryHex } from '../../config';
 
 export async function getStaticPaths() {
@@ -14,8 +17,10 @@ export async function getStaticPaths() {
 }
 
 const { post, allPosts } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const { title, description, pubDate, updatedDate, category, author } = post.data;
+
+const canonical = new URL(`/posts/${post.id}/`, Astro.site ?? SITE.url).toString();
 
 const dateFormatted = pubDate.toLocaleDateString('pt-BR', {
   day: '2-digit',
@@ -37,6 +42,8 @@ const related = allPosts
   .filter((p) => p.id !== post.id && p.data.category === category)
   .slice(0, 3);
 
+const others = allPosts.filter((p) => p.id !== post.id).slice(0, 4);
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -48,7 +55,7 @@ const breadcrumbSchema = {
       name: categoryName(category),
       item: `${SITE.url}/categorias/${category}`,
     },
-    { '@type': 'ListItem', position: 3, name: title, item: `${SITE.url}/posts/${post.id}` },
+    { '@type': 'ListItem', position: 3, name: title, item: canonical },
   ],
 };
 ---
@@ -62,6 +69,7 @@ const breadcrumbSchema = {
   author={author}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <div class="progress" aria-hidden="true"><i id="reading-progress"></i></div>
 
   <article>
     <header class="article-header">
@@ -81,37 +89,72 @@ const breadcrumbSchema = {
           </span>
           {updatedFormatted && <span class="chip">Atualizado {updatedFormatted}</span>}
           <span class="chip">{readingTime} min de leitura</span>
-          <span class="chip">Por {author}</span>
         </div>
       </div>
     </header>
 
-    <div class="container-narrow">
-      <AdSlot slot="post-topo" minHeight={90} />
-    </div>
+    <div class="container article-layout">
+      <div class="article-main">
+        <TableOfContents headings={headings} variant="mobile" />
 
-    <div class="container-narrow article-body">
-      <Content />
+        <AdSlot slot="post-topo" minHeight={90} />
 
-      <div class="disclosure">
-        Transparência: este artigo pode conter links de afiliados. Se você
-        comprar por eles, o ComparoTech recebe uma comissão — sem custo extra
-        para você. A recomendação segue a análise técnica, nunca a comissão.
+        <div class="article-body">
+          <Content />
+
+          <div class="disclosure">
+            Transparência: este artigo pode conter links de afiliados. Se você
+            comprar por eles, o ComparoTech recebe uma comissão — sem custo extra
+            para você. A recomendação segue a análise técnica, nunca a comissão.
+          </div>
+        </div>
+
+        <ShareRow title={title} url={canonical} />
+
+        <NewsletterCta />
+
+        <div class="author-box">
+          <div class="author-avatar" aria-hidden="true">CT</div>
+          <p>
+            <strong>{author}</strong>
+            Equipe de entusiastas de tecnologia do ComparoTech. Fazemos análises
+            comparativas com base em planos oficiais, documentação e experiência
+            de uso — sem enrolação.
+          </p>
+        </div>
+
+        <AdSlot slot="post-rodape" minHeight={120} />
       </div>
 
-      <div class="author-box">
-        <div class="author-avatar" aria-hidden="true">CT</div>
-        <p>
-          <strong>{author}</strong>
-          Equipe de entusiastas de tecnologia do ComparoTech. Fazemos análises
-          comparativas com base em planos oficiais, documentação e experiência de
-          uso — sem enrolação.
-        </p>
-      </div>
-    </div>
+      <aside class="article-rail" aria-label="Barra lateral do artigo">
+        <TableOfContents headings={headings} variant="rail" />
 
-    <div class="container-narrow">
-      <AdSlot slot="post-rodape" minHeight={120} />
+        <AdSlot slot="post-rail" minHeight={250} />
+
+        <div class="rail-card">
+          <h3>Leia também</h3>
+          {
+            others.map((p) => (
+              <a class="rail-link" href={`/posts/${p.id}/`}>
+                <span>{p.data.title}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+
+        <div class="rail-card">
+          <h3>Categorias</h3>
+          <a class="rail-link" href={`/categorias/${category}`}>
+            <span style={`color:${hex}; font-weight:700`}>{categoryName(category)}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </a>
+        </div>
+      </aside>
     </div>
   </article>
 
@@ -135,3 +178,16 @@ const breadcrumbSchema = {
     )
   }
 </Base>
+
+<script>
+  const bar = document.getElementById('reading-progress');
+  const onScroll = () => {
+    if (!bar) return;
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    bar.style.width = `${Math.min(100, pct)}%`;
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

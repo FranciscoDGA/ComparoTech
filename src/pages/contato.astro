@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE } from '../config';
+
+const mailSubject = encodeURIComponent('Falar com a equipe do ComparoTech');
+const mailto = `mailto:${SITE.email}?subject=${mailSubject}`;
 ---
 
 <Base title="Contato" description={`Fale com a equipe do ${SITE.name}: sugestões de comparativos, correções, parcerias e imprensa.`}>
@@ -11,25 +14,36 @@ import { SITE } from '../config';
     </header>
 
     <div class="page-body">
-      <h2>E-mail</h2>
-      <p>
-        <strong>{SITE.email}</strong>
-      </p>
-      <p>
-        Respondemos em até 5 dias úteis. Para sugestões de artigo, inclua o nome
-        das ferramentas que você quer ver comparadas — quanto mais específico,
-        melhor.
-      </p>
+      <div class="contact-hero">
+        <span class="text-muted" style="font-size:0.85rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">
+          E-mail para contato
+        </span>
+        <div class="email">{SITE.email}</div>
+        <a class="btn" href={mailto}>Enviar e-mail agora</a>
+        <p class="text-muted" style="margin:14px 0 0; font-size:0.88rem;">
+          Respondemos em até 5 dias úteis.
+        </p>
+      </div>
 
-      <h2>Assuntos que atendemos</h2>
-      <ul>
-        <li>Sugestão de novos comparativos e reviews</li>
-        <li>Correções fáticas (preços, recursos, links quebrados)</li>
-        <li>Parcerias e mídia kit</li>
-        <li>Assuntos legais (privacidade, direitos autorais)</li>
-      </ul>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="ic-icon">01</div>
+          <h3>Sugerir artigo</h3>
+          <p>Inclua o nome das ferramentas que você quer ver comparadas — quanto mais específico, melhor.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon">02</div>
+          <h3>Correções</h3>
+          <p>Achou preço desatualizado, recurso errado ou link quebrado? Avise que corrigimos.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon">03</div>
+          <h3>Parcerias</h3>
+          <p>Mídia kit, publicação e colaboração comercial: escreva com o assunto "Parceria".</p>
+        </div>
+      </div>
 
-      <div class="verdict">
+      <div class="verdict verdict-alert">
         <h3>Não enviamos suporte técnico</h3>
         <p>
           Não damos suporte de VPN, hospedagem ou apps de terceiros. Para isso,

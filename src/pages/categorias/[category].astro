@@ -23,11 +23,15 @@ const { posts } = Astro.props;
 const info = CATEGORIES[category as string];
 const name = info?.name ?? String(category);
 const hex = categoryHex(String(category));
+const count = posts.length;
 ---
 
 <Base title={name} description={info?.description ?? `Artigos de ${name} no ComparoTech.`}>
   <div class="container">
     <header class="page-header cat-header" style={`--cat: ${hex}`}>
+      <span class="cat-count" style={`--cat: ${hex}`}>
+        {count} {count === 1 ? 'artigo' : 'artigos'}
+      </span>
       <h1>{name}</h1>
       <p>{info?.description}</p>
     </header>
@@ -35,6 +39,14 @@ const hex = categoryHex(String(category));
     <section class="section">
       <div class="post-grid">
         {posts.map((post) => <PostCard post={post} />)}
+      </div>
+
+      <div class="cat-cta">
+        <div>
+          <h3>Falta um comparativo aqui?</h3>
+          <p>Conte qual ferramenta você quer ver analisada — a gente avalia escrever.</p>
+        </div>
+        <a class="btn btn-sm" href="/contato">Sugerir tópico</a>
       </div>
     </section>
   </div>

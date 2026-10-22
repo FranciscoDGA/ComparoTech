@@ -14,6 +14,16 @@ Neste comparativo, analisamos **preço real (incluindo renovação), velocidade,
 
 > **Transparência:** este artigo pode conter links de afiliados. Comissão não altera as notas — os critérios são fixos e estão descritos no [Sobre](/sobre).
 
+<div class="cta-inline">
+  <span class="pick-label">Resumo em 5 segundos</span>
+  <h3>Hostinger para pagar menos · Bluehost para ter suporte por telefone</h3>
+  <p>Ambas têm 30 dias de garantia de reembolso — teste antes de decidir.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://www.hostinger.com" target="_blank" rel="sponsored noopener">Ver Hostinger</a>
+    <a class="btn btn-ghost" href="https://www.bluehost.com" target="_blank" rel="sponsored noopener">Ver Bluehost</a>
+  </div>
+</div>
+
 ## Tabela comparativa: Hostinger vs Bluehost
 
 | Critério | **Hostinger** | **Bluehost** |
@@ -159,3 +169,13 @@ Para falantes de português que não têm fluência em inglês, a Hostinger tem 
 ---
 
 **Resumo em uma frase:** **Hostinger** se você quer o melhor preço com painel fácil; **Bluehost** se você quer o selo oficial do WordPress e suporte por telefone.
+
+<div class="cta-inline">
+  <span class="pick-label">Próximo passo</span>
+  <h3>Faça o primeiro site com 30 dias de garantia</h3>
+  <p>Confirme o preço de renovação no checkout antes de fechar o plano longo.</p>
+  <div class="btn-row">
+    <a class="btn" href="https://www.hostinger.com" target="_blank" rel="sponsored noopener">Ver plano da Hostinger</a>
+    <a class="btn btn-ghost" href="https://www.bluehost.com" target="_blank" rel="sponsored noopener">Ver plano da Bluehost</a>
+  </div>
+</div>

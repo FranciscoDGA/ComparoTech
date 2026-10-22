@@ -1,0 +1,23 @@
+---
+import { SITE } from '../config';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+const mailSubject = encodeURIComponent(`Quero receber novos comparativos do ${SITE.name}`);
+const mailto = `mailto:${SITE.email}?subject=${mailSubject}`;
+---
+
+<div class="newsletter" style={compact ? 'padding: 22px 20px;' : ''}>
+  <h3>{compact ? 'Não perca o próximo comparativo' : 'Receba os novos comparativos antes de todo mundo'}</h3>
+  <p>
+    Sem spam. Só avisamos quando publicamos um guia novo de VPN, hospedagem,
+    apps ou produtividade.
+  </p>
+  <div class="btn-row">
+    <a class="btn" href={mailto}>Quero receber por e-mail</a>
+    <a class="btn btn-ghost" href="/rss.xml">Assinar RSS</a>
+  </div>
+</div>
