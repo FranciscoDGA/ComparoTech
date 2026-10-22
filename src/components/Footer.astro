@@ -1,0 +1,61 @@
+---
+import { SITE, CATEGORIES } from '../config';
+
+const year = new Date().getFullYear();
+const categoryEntries = Object.entries(CATEGORIES);
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>{SITE.name}</h3>
+        <p class="text-muted">
+          Comparativos de tecnologia para você escolher melhor — sem enrolação, com
+          tabela, prós, contras e veredito.
+        </p>
+      </div>
+
+      <div>
+        <h3>Categorias</h3>
+        <ul>
+          {
+            categoryEntries.map(([slug, cat]) => (
+              <li>
+                <a href={`/categorias/${slug}`}>{cat.name}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3>Institucional</h3>
+        <ul>
+          <li><a href="/sobre">Sobre o ComparoTech</a></li>
+          <li><a href="/contato">Contato</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/privacidade">Política de Privacidade</a></li>
+          <li><a href="/aviso-legal">Aviso Legal</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © {year} {SITE.name}. Todos os direitos reservados.
+      </p>
+      <p>
+        Este site exibe anúncios do Google AdSense e pode conter links de afiliados.
+        Ao comprar por esses links, você não paga a mais — e nos ajuda a manter o
+        conteúdo gratuito.
+      </p>
+    </div>
+  </div>
+</footer>

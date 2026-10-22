@@ -1,0 +1,41 @@
+---
+import { SITE } from '../config';
+
+const pathname = Astro.url.pathname;
+
+const links = [
+  { href: '/', label: 'Início' },
+  { href: '/categorias/vpn-e-seguranca', label: 'VPN' },
+  { href: '/categorias/hospedagem', label: 'Hospedagem' },
+  { href: '/categorias/produtividade', label: 'Produtividade' },
+  { href: '/categorias/apps-gratuitos', label: 'Apps' },
+  { href: '/sobre', label: 'Sobre' },
+  { href: '/contato', label: 'Contato' },
+];
+
+function isCurrent(href: string): boolean {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo" aria-label={`${SITE.name} — página inicial`}>
+      Comparo<span>Tech</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle-label">Menu</label>
+
+    <nav class="nav-main" aria-label="Menu principal">
+      {
+        links.map((link) => (
+          <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+
+<Base title="Contato" description={`Fale com a equipe do ${SITE.name}: sugestões de comparativos, correções, parcerias e imprensa.`}>
+  <div class="container-narrow">
+    <header class="page-header">
+      <h1>Contato</h1>
+      <p>Quer sugerir um comparativo ou encontrou um erro? Escreva para a gente.</p>
+    </header>
+
+    <div class="page-body">
+      <h2>E-mail</h2>
+      <p>
+        <strong>{SITE.email}</strong>
+      </p>
+      <p>
+        Respondemos em até 5 dias úteis. Para sugestões de artigo, inclua o nome
+        das ferramentas que você quer ver comparadas — quanto mais específico,
+        melhor.
+      </p>
+
+      <h2>Assuntos que atendemos</h2>
+      <ul>
+        <li>Sugestão de novos comparativos e reviews</li>
+        <li>Correções fáticas (preços, recursos, links quebrados)</li>
+        <li>Parcerias e mídia kit</li>
+        <li>Assuntos legais (privacidade, direitos autorais)</li>
+      </ul>
+
+      <div class="verdict">
+        <h3>Não enviamos suporte técnico</h3>
+        <p>
+          Não damos suporte de VPN, hospedagem ou apps de terceiros. Para isso,
+          fale com o suporte oficial do serviço em questão.
+        </p>
+      </div>
+    </div>
+  </div>
+</Base>

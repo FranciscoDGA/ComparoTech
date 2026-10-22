@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Substitua pela URL definitiva quando o domínio estiver comprado
+Sitemap: https://comparotech.vercel.app/sitemap-index.xml

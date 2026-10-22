@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+
+<Base title="Sobre" description={`Conheça o ${SITE.name}: como escolhemos, comparamos e o que você pode esperar do nosso conteúdo.`}>
+  <div class="container-narrow">
+    <header class="page-header">
+      <h1>Sobre o {SITE.name}</h1>
+      <p>Como funciona o nosso método de comparação — e por que ele existe.</p>
+    </header>
+
+    <div class="page-body">
+      <h2>Nossa missão</h2>
+      <p>
+        O {SITE.name} nasceu de um problema simples: pesquisar a melhor ferramenta
+        para cada tarefa virou um labirinto de artigos genéricos, reviews pagos e
+        listas que nunca explicam <em>por que</em> uma opção é melhor que a outra.
+      </p>
+      <p>
+        Aqui, cada artigo segue o mesmo formato: uma tabela comparativa no topo,
+        análise de cada opção com prós e contras reais, e um veredito dizendo
+        claramente quem deveria comprar cada uma — e quem não deveria.
+      </p>
+
+      <h2>Como fazemos as comparações</h2>
+      <ul>
+        <li>
+          <strong>Critérios fixos:</strong> preço, facilidade de uso, recursos
+          essenciais, suporte e relação custo-benefício — sempre os mesmos para
+          todas as opções do artigo.
+        </li>
+        <li>
+          <strong>Fontes públicas:</strong> documentação oficial, planos e
+          preços vigentes publicados pelos fabricantes, testes da comunidade e
+          feedback de usuários em fórios e lojas de apps.
+        </li>
+        <li>
+          <strong>Transigência comercial:</strong> se um produto pago for pior
+          que o gratuito, dizemos isso. Se o mais famoso não vale o preço, dizemos.
+        </li>
+        <li>
+          <strong>Atualização:</strong> os artigos são revisados quando preços,
+          planos ou recursos mudam de forma relevante.
+        </li>
+      </ul>
+
+      <h2>Como o site se mantém</h2>
+      <p>
+        O {SITE.name} é gratuito para o leitor. Nosso custo é coberto por
+        anúncios do Google AdSense e, em alguns artigos, por links de afiliados —
+        ou seja, podemos receber uma comissão se você comprar por um link nosso,
+        <strong>sem nenhum custo adicional para você</strong>.
+      </p>
+      <p>
+        Comissão nunca é critério de ranking: a ordem das opções em um
+        comparativo segue a análise técnica, não o valor da comissão. Links de
+        afiliados são sinalizados no rodapé dos artigos que os contêm.
+      </p>
+
+      <h2>Quem escreve</h2>
+      <p>
+        Os conteúdos são produzidos pela {SITE.author}, equipe de entusiastas de
+        tecnologia com experiência prática em ferramentas digitais, redes e
+        produtividade. Não somos médicos, advogados ou assessores financeiros —
+        e é justamente por isso que focamos em tecnologia: um nicho onde
+        experiência de uso e análise de recursos contam mais do que diplomas.
+      </p>
+
+      <h2>Contato</h2>
+      <p>
+        Sugestão de comparativo, correção, parceria ou imprensa? Fale com a gente
+        na página de <a href="/contato">contato</a>.
+      </p>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { CATEGORIES } from '../config';
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const featured = posts.find((post) => post.data.featured) ?? posts[0];
+const latest = posts.filter((post) => post.id !== featured?.id).slice(0, 6);
+---
+
+<Base>
+  <section class="hero">
+    <div class="container">
+      <h1>Escolha a ferramenta certa sem perder horas pesquisando</h1>
+      <p>
+        Comparativos de VPN, hospedagem, apps e produtividade — com tabela
+        lado a lado, prós, contras e um veredito direto ao ponto.
+      </p>
+      <ul class="category-pills">
+        {
+          Object.entries(CATEGORIES).map(([slug, cat]) => (
+            <li>
+              <a href={`/categorias/${slug}`}>{cat.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Destaque</h2>
+      <div class="post-grid" style="grid-template-columns: 1fr;">
+        {featured && <PostCard post={featured} />}
+      </div>
+    </div>
+  </section>
+
+  <AdSlot slot="home-topo" minHeight={90} />
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <h2 class="section-title">Últimos artigos</h2>
+      <div class="post-grid">
+        {latest.map((post) => <PostCard post={post} />)}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+const year = new Date().getFullYear();
+---
+
+<Base title="Política de Privacidade" description={`Política de privacidade do ${SITE.name}: como tratamos seus dados, cookies e ferramentas de terceiros.`}>
+  <div class="container-narrow">
+    <header class="page-header">
+      <h1>Política de Privacidade</h1>
+      <p>Última atualização: 22 de outubro de {year}</p>
+    </header>
+
+    <div class="page-body">
+      <p>
+        Esta Política de Privacidade descreve como o {SITE.name} ("nós",
+        "nosso") trata informações dos visitantes do site {SITE.url}. Ao usar
+        o site, você concorda com as práticas descritas aqui.
+      </p>
+
+      <h2>1. Dados que coletamos</h2>
+      <p>
+        O site é estático e não exige cadastro. Não pedimos nome, telefone ou
+        dados de pagamento. Podemos coletar dados automaticamente:
+      </p>
+      <ul>
+        <li>
+          <strong>Log de acesso:</strong> endereço IP, navegador, páginas
+          visitadas e horário — armazenados pelo provedor de hospedagem
+          (Vercel) por motivos de segurança e performance.
+        </li>
+        <li>
+          <strong>Cookies e tecnologias semelhantes:</strong> usados por
+          ferramentas de terceiros listadas abaixo (anúncios e métricas).
+        </li>
+      </ul>
+
+      <h2>2. Google AdSense e anúncios</h2>
+      <p>
+        Exibimos anúncios através do Google AdSense. O Google e seus parceiros
+        podem usar cookies para exibir anúncios com base em suas visitas
+        anteriores a este site ou a outros sites na internet.
+      </p>
+      <ul>
+        <li>
+          Você pode gerenciar anúncios personalizados em
+          <a href="https://adssettings.google.com" rel="noopener noreferrer" target="_blank">
+            Configurações de Anúncios do Google
+          </a>.
+        </li>
+        <li>
+          Veja como o Google usa dados em
+          <a href="https://policies.google.com/technologies/ads" rel="noopener noreferrer" target="_blank">
+            Google Technologies &amp; Ads
+          </a>.
+        </li>
+      </ul>
+
+      <h2>3. Google Analytics</h2>
+      <p>
+        Podemos usar o Google Analytics para entender, de forma agregada, quantas
+        pessoas visitam o site e quais artigos são mais lidos. O Google Analytics
+        coleta informações como páginas visitadas e tipo de dispositivo. Você pode
+        optar não sair em
+        <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">
+          https://tools.google.com/dlpage/gaoptout
+        </a>.
+      </p>
+
+      <h2>4. Links de afiliados</h2>
+      <p>
+        Alguns artigos contêm links de afiliados (por exemplo, de programas de
+        afiliados de VPN e hospedagem). Se você comprar por esses links, o site
+        pode receber uma comissão. Esses links não geram nenhum custo extra para
+        você e não influenciam nossas recomendações.
+      </p>
+
+      <h2>5. Conteúdo de terceiros</h2>
+      <p>
+        O site pode embutir conteúdo de terceiros (por exemplo, vídeos do
+        YouTube). Esse conteúdo segue as políticas de privacidade dos
+        respectivos serviços, que não controlamos.
+      </p>
+
+      <h2>6. Seus direitos (LGPD)</h2>
+      <p>
+        Nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você
+        pode solicitar informações sobre tratamento de dados pessoais, correção
+        ou eliminação de dados, conforme aplicável. Envie sua solicitação para
+        <strong>{SITE.email}</strong>.
+      </p>
+
+      <h2>7. Crianças</h2>
+      <p>
+        O site não é direcionado a crianças menores de 13 anos e não coleta
+        dados de forma intencional de crianças.
+      </p>
+
+      <h2>8. Alterações nesta política</h2>
+      <p>
+        Podemos atualizar esta política a qualquer versão vigente. A data da
+        última atualização sempre aparece no topo desta página.
+      </p>
+
+      <h2>9. Contato</h2>
+      <p>Dúvidas sobre privacidade: <strong>{SITE.email}</strong>.</p>
+    </div>
+  </div>
+</Base>

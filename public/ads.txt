@@ -1,0 +1,5 @@
+# Google AdSense - ads.txt
+# Após a aprovação no AdSense, descomente a linha abaixo e substitua
+# pub-XXXXXXXXXXXXXXXX pelo seu ID de editor real:
+#
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

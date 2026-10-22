@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { categoryName } from '../config';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, category } = post.data;
+
+const dateFormatted = pubDate.toLocaleDateString('pt-BR', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+});
+---
+
+<a class="post-card" href={`/posts/${post.id}/`}>
+  <div class="card-meta">
+    <span class="card-category">{categoryName(category)}</span>
+    <time datetime={pubDate.toISOString()}>{dateFormatted}</time>
+  </div>
+  <h2>{title}</h2>
+  <p>{description}</p>
+</a>

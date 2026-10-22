@@ -1,0 +1,17 @@
+---
+/**
+ * Espaço para anúncio (AdSense).
+ * Após a aprovação no Google AdSense, substitua o conteúdo deste componente
+ * pelo bloco real <ins class="adsbygoogle" ...> com seu ID de unidade.
+ */
+interface Props {
+  slot?: string;
+  minHeight?: number;
+}
+
+const { slot = 'auto', minHeight = 100 } = Astro.props;
+---
+
+<div class="ad-slot" data-ad-slot={slot} style={`min-height: ${minHeight}px`}>
+  <span class="ad-label">Publicidade</span>
+</div>

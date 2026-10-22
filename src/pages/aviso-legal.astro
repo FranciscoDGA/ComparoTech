@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+
+<Base title="Aviso Legal" description={`Aviso legal do ${SITE.name}: conteúdo informativo, isenção de garantias e transparência comercial.`}>
+  <div class="container-narrow">
+    <header class="page-header">
+      <h1>Aviso Legal</h1>
+      <p>Transparência sobre o conteúdo publicado no {SITE.name}.</p>
+    </header>
+
+    <div class="page-body">
+      <h2>Conteúdo informativo</h2>
+      <p>
+        Todo o conteúdo do {SITE.name} tem caráter exclusivamente informativo e
+        educacional. Não constitui recomendação personalizada de investimento,
+        aconselhamento jurídico, médico ou profissional de qualquer espécie.
+      </p>
+
+      <h2>Precificação e disponibilidade</h2>
+      <p>
+        Preços, planos e recursos de produtos e serviços mudam com frequência.
+        Fazemos o possível para manter os artigos atualizados, mas o preço
+        exibido em um comparativo pode divergir do valor vigente no site do
+        fabricante. Sempre confirme no site oficial antes de contratar.
+      </p>
+
+      <h2>Transparência comercial</h2>
+      <p>
+        O site pode exibir anúncios do Google AdSense e conter links de
+        afiliados. Podemos receber comissão por compras feitas por esses links,
+        sem custo adicional para você. A presença de um link de afiliado nunca
+        garante nota máxima, destaque ou recomendação — os critérios estão
+        descritos na página <a href="/sobre">Sobre</a>.
+      </p>
+
+      <h2>Marcas e nomes de produtos</h2>
+      <p>
+        Todos os nomes de produtos, serviços e marcas citados pertencem aos
+        seus respectivos proprietários. O uso de nomes de marcas é apenas para
+        identificação editorial e não implica associação, patrocínio ou
+        endosso.
+      </p>
+
+      <h2>Responsabilidade</h2>
+      <p>
+        O {SITE.name} não se responsabiliza por decisões tomadas com base no
+        conteúdo aqui publicado, nem por indisponibilidade de serviços de
+        terceiros. O uso do site e a contratação de produtos/serviços citados
+        são de responsabilidade do leitor.
+      </p>
+
+      <h2>Contato</h2>
+      <p>
+        Dúvidas sobre este aviso: <strong>{SITE.email}</strong>.
+      </p>
+    </div>
+  </div>
+</Base>
